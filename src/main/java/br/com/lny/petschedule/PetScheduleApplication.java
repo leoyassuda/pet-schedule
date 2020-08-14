@@ -16,11 +16,11 @@ public class PetScheduleApplication {
         ConfigurableApplicationContext context = SpringApplication.run(PetScheduleApplication.class, args);
 
         Map<String, String> users = Map.ofEntries(
-                new AbstractMap.SimpleEntry<>("Omar", "Buchain"),
-                new AbstractMap.SimpleEntry<>("Kelly", "Alves"),
-                new AbstractMap.SimpleEntry<>("Gui", "Alves"),
-                new AbstractMap.SimpleEntry<>("Leo", "Yassuda"),
-                new AbstractMap.SimpleEntry<>("Oswaldo", "Graziotto")
+                new AbstractMap.SimpleEntry<>("Dog-A", "Dog-1"),
+                new AbstractMap.SimpleEntry<>("Dog-B", "Dog-2"),
+                new AbstractMap.SimpleEntry<>("Dog-C", "Dog-3"),
+                new AbstractMap.SimpleEntry<>("Dog-D", "Dog-4"),
+                new AbstractMap.SimpleEntry<>("Dog-E", "Dog-5")
         );
 
         UserService service = context.getBean(UserService.class);

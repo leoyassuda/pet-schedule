@@ -7,11 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Log4j2
 @Component
-public class ChangeEventListener implements ApplicationListener<UserChangedEvent> {
+public class ModifyEventListener implements ApplicationListener<UserChangedEvent> {
 
     @Override
     public void onApplicationEvent(UserChangedEvent userChangedEvent) {
         User user = userChangedEvent.getUser();
-        log.info("ChangeEventListener#onApplicationEvent user={}", user);
+        user.setFirstname("MODIFY " + user.getFirstname());
+        log.info("ModifyEventListener#onApplicationEvent user={}", user);
     }
 }

@@ -1,30 +1,47 @@
 package br.com.lny.petschedule.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Document
 public class User {
+
+    @Id
+    private String id;
+
+    /**
+     * User's firstname.
+     */
     private String firstname;
+
+    /**
+     * User's Lastname.
+     */
     private String lastname;
 
-    public User(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
+    /**
+     * The datetime of creation document in database.
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @CreatedDate
+    private LocalDateTime createDate;
 
-    public User() {
-    }
+    /**
+     * The datetime of last document update
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @LastModifiedDate
+    private LocalDateTime lastModifiedDate;
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
 }
